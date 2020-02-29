@@ -25,7 +25,6 @@ module.exports = {
       data_pedido: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.NOW,
       },
       created_at: {
         type: Sequelize.DATE,
