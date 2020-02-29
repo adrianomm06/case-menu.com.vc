@@ -5,8 +5,11 @@ Case para o processo seletivo da Menu.com.vc
 Recomendado o uso dos seguintes softwares:
 
 Visual Studio Code
+
 Yarn
+
 Docker
+
 PostBird
 
 Insomnia
