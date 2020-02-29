@@ -11,11 +11,7 @@ class ClienteController {
   }
 
   async show(req, res) {
-    const { id } = req.params;
-
-    const cliente = await Cliente.findByPk(id);
-
-    return res.json(cliente);
+    return res.json(req.cliente);
   }
 
   async store(req, res) {
@@ -28,7 +24,9 @@ class ClienteController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Falha na validaçao dos dados.' });
+      return res
+        .status(400)
+        .json({ error: 'Dados requeridos. Favor validar.' });
     }
 
     const ClienteExists = await Cliente.findOne({
@@ -63,13 +61,14 @@ class ClienteController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Falha na validaçao dos dados.' });
+      return res
+        .status(400)
+        .json({ error: 'Dados requeridos. Favor validar.' });
     }
 
     const { id } = req.params;
     const { email } = req.body;
-
-    const cliente = await Cliente.findByPk(id);
+    const { cliente } = req;
 
     if (email !== cliente.email) {
       const ClienteExists = await Cliente.findOne({ where: { email } });
