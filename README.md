@@ -5,9 +5,13 @@ Case para o processo seletivo da Menu.com.vc
 Recomendado o uso dos seguintes softwares:
 
 Visual Studio Code
+
 Yarn
+
 Docker
+
 PostBird
+
 Insomnia
 
 ## Inicialização
@@ -17,6 +21,7 @@ git clone https://github.com/adrianomm06/case-menu.com.vc.git
 Baixar as dependências do projeto com o seguinte comando:
 
 ```yarn```
+
 Criar o container no Docker para acesso aos banco de dados Postgres:
 
 ```docker run --name menu_database -e POSTGRES_PASSWORD=mudar123 -p 5433:5432 -d postgres```
