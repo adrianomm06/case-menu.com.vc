@@ -5,6 +5,10 @@ class ClienteController {
   async index(req, res) {
     const clientes = await Cliente.findAll({
       attributes: ['id', 'primeiro_nome', 'ultimo_nome', 'email'],
+      order: [
+        ['primeiro_nome', 'ASC'],
+        ['ultimo_nome', 'ASC'],
+      ],
     });
 
     return res.json(clientes);

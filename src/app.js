@@ -1,6 +1,7 @@
 import './bootstrap';
 
 import express from 'express';
+import cors from 'cors';
 import * as Youch from 'youch';
 import * as Sentry from '@sentry/node';
 import 'express-async-errors';
@@ -24,6 +25,11 @@ class App {
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(express.json());
+    this.server.use(
+      cors({
+        origin: 'http://localhost:8080',
+      })
+    );
   }
 
   routes() {

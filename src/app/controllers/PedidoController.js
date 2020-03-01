@@ -22,7 +22,6 @@ class PedidoController {
     const schema = Yup.object().shape({
       status: Yup.string().required(),
       valor: Yup.number(),
-      data_pedido: Yup.date().required(),
       cliente_id: Yup.number().required(),
     });
 
@@ -37,6 +36,11 @@ class PedidoController {
     if (!cliente) {
       return res.status(400).json({ error: 'Cliente não encontrado!' });
     }
+
+    const data = new Date();
+    req.body.data_pedido = data.toISOString();
+
+    console.log(req.body.data_pedido);
 
     const { id, status, valor, data_pedido, cliente_id } = await Pedido.create(
       req.body
@@ -59,7 +63,6 @@ class PedidoController {
     const schema = Yup.object().shape({
       status: Yup.string().required(),
       valor: Yup.number(),
-      data_pedido: Yup.date().required(),
       cliente_id: Yup.number().required(),
     });
 
